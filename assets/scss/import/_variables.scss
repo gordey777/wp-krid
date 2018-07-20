@@ -1,0 +1,83 @@
+// Font Sizes
+$base-font-size: 16px;
+$em-base: $base-font-size;
+$base-font-family: 'PF Agora Slab Pro', Open-sans;
+$heading-font-family: $base-font-family;
+
+// font weight
+$fubold: 900; // Extra Black, Fat, Poster or Ultra Black
+$fblack: 800; // Black, Extra Bold or Heavy
+$fbold: 700; // Bold
+$fsbold: 600; // Semibold, Demibold
+$fmed: 500; //  Medium
+$fnorm: 400; //  Normal or Regular
+$flight: 300; // Book or Demi
+$fthin: 200; // 200 Light or Thin
+$fulight: 100; // 100 Extra Light or Ultra Light
+
+// Line height
+$base-line-height: 1.1;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$width: 1260px;
+$footer: 50px;
+$footer_margin: $footer - 2 * $footer;
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$orange: #fb8c00;
+$orange-dark: #9a5600;
+$orange-med: #cf722a;
+$yellow: #ffae00;
+$red: red;
+$blue: #00acc1;
+$blue-dark: #00616f;
+$violet: #8e24aa;
+$violet-dark: #5f0376;
+$green: #8bab00;
+$green-light: #d8de6d;
+$green-dark: #8bab00;
+$green-dark: #8bab00;
+$gray-medium: #e8e8e8;
+$gray-dark: #999;
+$gray-sdark: #333;
+$gray-light: #ddd;
+$green-gradient: linear-gradient(to bottom, rgba(#bdc901, 1) 0%, rgba(#8aab00, 1) 50%, rgba(#8aab00, 1) 100% );
+$green-btn-gradient: linear-gradient(to bottom, rgba(#8aab00, 1) 0%, rgba(#bdc901, 1) 30%, rgba(#8aab00, 1) 60%, rgba(#8aab00, 1) 100% );
+$violet-gradient: linear-gradient(to bottom, rgba(#cd43e3, .7) 0%, rgba(#8e24aa, .7) 50%, rgba(#8e24aa, .7) 100% );
+$violet-btn-gradient: linear-gradient(to bottom, rgba(#8e24aa, 1) 0%, rgba(#cd43e3, 1) 30%, rgba(#8e24aa, 1) 100% );
+$gray-gradient: linear-gradient(to bottom, rgba(#fff, .8) 0%, rgba(#e8e8e8, 1) 90%, rgba(#e8e8e8, 1) 100% );
+$gray-btn-gradient: linear-gradient(to bottom, rgba(#e8e8e8, 1) 0%, rgba(#fff, 1) 30%, rgba(#e8e8e8, 1) 100% );
+
+
+
+// Font Colors
+$base-font-color: $gray-sdark;
+$action-color: $blue;
+
+// Border
+$base-border-color: $gray-light;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Shadows
+$btn-shadow: inset 0 1px 3px rgba(#fff, .06);
+$btn-hover-shadow: inset 0 1px 3px rgba(#fff, .06);
+$base-box-shadow: 0 1px 18px rgba(50,50,50,.6);
+$text-shadow: 0 4px 9px rgba(50,50,50,.8);
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, .06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -.3);
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
+$base-transition: background-color $base-duration * 5 $base-timing, color $base-duration * .7 $base-timing, opacity $base-duration * .3 $base-timing;

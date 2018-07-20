@@ -1,0 +1,101 @@
+.button,
+.btn,
+input[type='button'],
+input[type='reset'],
+input[type='submit'],
+button {
+  font-family: $base-font-family;
+  font-size: 21px;
+  //font-weight: 600;
+  line-height: 60px;
+
+  display: inline-block;
+
+  height: 60px;
+  //padding: .75em 1em;
+  padding: 0 25px;
+
+  cursor: pointer;
+  user-select: none;
+  transition: $base-transition;
+  transition: all .3s;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  background: $green-btn-gradient;
+  //background: $green;
+  background-position: 0 70%;
+  background-size: auto 150%;
+  text-shadow: $text-shadow;
+  //box-shadow: $btn-shadow;
+
+  -webkit-font-smoothing: antialiased;
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: none;
+    background-position: 0 0;
+    //background: $green-hover-gradient;
+  }
+  &:active {
+    color: lighten($action-color, 15%);
+    outline: none;
+  }
+  &:disabled {
+    cursor: not-allowed;
+
+    opacity: .5;
+  }
+  &.btn-violet {
+    background: $violet-btn-gradient;
+    background-position: 0 70%;
+    background-size: auto 150%;
+    &:hover,
+    &:focus {
+      background-position: 0 0;
+      //background: $violet-hover-gradient;
+    }
+  }
+}
+
+
+.callback {
+  display: inline-block;
+
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  padding: 3px;
+
+  border-radius: 100%;
+  background: url(../img/ico-phone.png) no-repeat center center, $green;
+  background-size: 70% auto;
+  box-shadow: 0 2px 5px -1px rgba(#ccc, .7), inset 0 2px 5px -1px rgba(#000, .6);
+  &:hover,
+  &:focus,
+  &:active {
+    background-size: 75% auto;
+    background-position: center center;
+    box-shadow: 0 2px 5px -2px rgba(#000, .4), inset 0 2px 4px -1px rgba(#fff, .4);
+  }
+}
+
+.more-link {
+  font-size: $base-font-size;
+
+  text-align: center;
+
+  color: #000;
+  background: $gray-medium;
+  text-shadow: none;
+  &:hover {
+    color: #fff;
+    background: $yellow;
+    text-shadow: $text-shadow;
+  }
+}
