@@ -1,201 +1,234 @@
 $rb-font-path: '../fonts' !default;
 
 @font-face {
-  font-family: 'Leokadia Deco';
-  font-weight: normal;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/LeokadiaDeco.eot');
-  src: url('#{$rb-font-path}/LeokadiaDeco.eot') format('embedded-opentype'),
-  url('#{$rb-font-path}/LeokadiaDeco.woff') format('woff'),
-  url('#{$rb-font-path}/LeokadiaDeco.woff2') format('woff2');
-}
-
-
-@font-face {
-  font-family: 'Solena';
-  font-weight: normal;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/Solena-Regular.eot');
-  src: url('#{$rb-font-path}/Solena-Regular.eot') format('embedded-opentype'),
-  url('#{$rb-font-path}/Solena-Regular.woff') format('woff'),
-  url('#{$rb-font-path}/Solena-Regular.woff2') format('woff2');
-}
-
-
-@font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: normal;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Regular.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Regular.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Regular.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Regular.woff') format('woff');
+    font-family: 'Barkentina';
+    src: url('#{$rb-font-path}/Barkentina.woff2') format('woff2'),
+        url('#{$rb-font-path}/Barkentina.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: 500;
-  font-style: italic;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-MediumItalic.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-MediumItalic.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-MediumItalic.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-MediumItalic.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-BlackItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: 100;
-  font-style: italic;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-ThinIt.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-ThinIt.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-ThinIt.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-ThinIt.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-SemiboldItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-SemiboldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: 100;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Thin.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Thin.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Thin.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Thin.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-ThinItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: 300;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Light.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Light.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Light.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Light.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-HeavyItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-HeavyItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: 500;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Medium.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Medium.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Medium.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Medium.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-MediumItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: 900;
-  font-style: italic;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-BlackItalic.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-BlackItalic.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-BlackItalic.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-BlackItalic.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Heavy.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: bold;
-  font-style: italic;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-BoldItalic.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-BoldItalic.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-BoldItalic.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-LightItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: normal;
-  font-style: italic;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Italic.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Italic.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Italic.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Italic.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Medium.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: 900;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Black.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Black.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Black.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Black.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Regular.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro ExtraThin';
-  font-weight: 100;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-ExtraThin.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-ExtraThin.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-ExtraThin.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-ExtraThin.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Thin.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro UltraBlack';
-  font-weight: 900;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-UltraBlack.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-UltraBlack.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-UltraBlack.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-UltraBlack.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Bold.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro UltraBlack';
-  font-weight: 900;
-  font-style: italic;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-UltraBlackItalic.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-UltraBlackItalic.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-UltraBlackItalic.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-UltraBlackItalic.woff') format('woff');
+    font-family: 'Lato Hairline';
+    src: url('#{$rb-font-path}/Lato-Hairline.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Hairline.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: bold;
-  font-style: normal;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Bold.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-Bold.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Bold.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-Bold.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Semibold.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro';
-  font-weight: 300;
-  font-style: italic;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-LightItalic.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-LightItalic.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-LightItalic.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-LightItalic.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Light.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'PF Agora Slab Pro ExtraThin';
-  font-weight: 100;
-  font-style: italic;
-
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-ExtraThinItalic.eot');
-  src: url('#{$rb-font-path}/PFAgoraSlabPro-ExtraThinItalic.eot?#iefix') format('embedded-opentype'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-ExtraThinItalic.woff2') format('woff2'),
-  url('#{$rb-font-path}/PFAgoraSlabPro-ExtraThinItalic.woff') format('woff');
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Italic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
 }
+
+@font-face {
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-Black.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato Hairline';
+    src: url('#{$rb-font-path}/Lato-HairlineItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-HairlineItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('#{$rb-font-path}/Lato-BoldItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/Lato-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans-Semibold.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans-Light.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans-Extrabold.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans-Extrabold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans-SemiboldItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans-SemiboldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans-Italic.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans-Bold.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans-BoldItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSansLight-Italic.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSansLight-Italic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('#{$rb-font-path}/OpenSans-ExtraboldItalic.woff2') format('woff2'),
+        url('#{$rb-font-path}/OpenSans-ExtraboldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+

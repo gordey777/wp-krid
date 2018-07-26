@@ -1,5 +1,3 @@
-    </div><!-- /.inner -->
-  </section><!-- /section -->
 
 </div><!-- /wrapper -->
 

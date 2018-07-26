@@ -54,7 +54,7 @@ select[multiple=multiple] {
   transition: $base-transition;
 
   border: $base-border;
-  //border-radius: $base-border-radius;
+  border-radius: $base-border-radius;
   outline: none;
   background-color: $base-background-color;
   box-shadow: $form-box-shadow;
@@ -100,17 +100,4 @@ select {
   width: auto;
   max-width: 100%;
   margin-bottom: $base-spacing;
-}
-
-::-webkit-input-placeholder {
-  font-weight: 100;
-}
-::-moz-placeholder {
-  font-weight: 100;
-}
-:-ms-input-placeholder {
-  font-weight: 100;
-}
-:-moz-placeholder {
-  font-weight: 100;
 }

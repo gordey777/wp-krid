@@ -31,8 +31,8 @@ html {
 @import "utilities/display";
 @import "utilities/flex";
 @import "modal";
-@media (min-width:1500px) {
+@media (min-width:1400px) {
   .container{
-    max-width: 1390px;
+    max-width: 1200px;
   }
 }

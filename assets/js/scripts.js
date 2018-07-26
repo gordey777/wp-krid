@@ -7898,6 +7898,28 @@ jQuery(document).ready(function($) {
   //   return false;
   // });
 
+  $('#main_slider').owlCarousel({
+
+    loop: true,
+    items: 1,
+
+    navText: ['', ''],
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+    margin: 0,
+    dots: true,
+    animateOut: 'fadeOut',
+    responsive: {
+      0: {
+        nav: false
+      },
+      560: {
+        nav: true
+      },
+
+    }
+  });
   $('.sertif-slider').owlCarousel({
 
     rewind: true,

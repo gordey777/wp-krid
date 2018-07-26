@@ -1,8 +1,8 @@
 // Font Sizes
 $base-font-size: 16px;
 $em-base: $base-font-size;
-$base-font-family: 'PF Agora Slab Pro', Open-sans;
-$heading-font-family: $base-font-family;
+$base-font-family: 'Open Sans', Open-sans;
+$heading-font-family: 'Barkentina';
 
 // font weight
 $fubold: 900; // Extra Black, Fat, Poster or Ultra Black
@@ -20,7 +20,7 @@ $base-line-height: 1.1;
 $heading-line-height: 1.2;
 
 // Other Sizes
-$width: 1260px;
+$width: 1200px;
 $footer: 50px;
 $footer_margin: $footer - 2 * $footer;
 $base-border-radius: 3px;
@@ -29,35 +29,19 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$orange: #fb8c00;
-$orange-dark: #9a5600;
-$orange-med: #cf722a;
-$yellow: #ffae00;
-$red: red;
-$blue: #00acc1;
-$blue-dark: #00616f;
-$violet: #8e24aa;
-$violet-dark: #5f0376;
-$green: #8bab00;
-$green-light: #d8de6d;
-$green-dark: #8bab00;
-$green-dark: #8bab00;
+$red: #b61528;
+$red-dark: #6e000d;
+$green: #87b315;
 $gray-medium: #e8e8e8;
-$gray-dark: #999;
-$gray-sdark: #333;
+$gray-dark: #3b4046;
 $gray-light: #ddd;
-$green-gradient: linear-gradient(to bottom, rgba(#bdc901, 1) 0%, rgba(#8aab00, 1) 50%, rgba(#8aab00, 1) 100% );
-$green-btn-gradient: linear-gradient(to bottom, rgba(#8aab00, 1) 0%, rgba(#bdc901, 1) 30%, rgba(#8aab00, 1) 60%, rgba(#8aab00, 1) 100% );
-$violet-gradient: linear-gradient(to bottom, rgba(#cd43e3, .7) 0%, rgba(#8e24aa, .7) 50%, rgba(#8e24aa, .7) 100% );
-$violet-btn-gradient: linear-gradient(to bottom, rgba(#8e24aa, 1) 0%, rgba(#cd43e3, 1) 30%, rgba(#8e24aa, 1) 100% );
-$gray-gradient: linear-gradient(to bottom, rgba(#fff, .8) 0%, rgba(#e8e8e8, 1) 90%, rgba(#e8e8e8, 1) 100% );
-$gray-btn-gradient: linear-gradient(to bottom, rgba(#e8e8e8, 1) 0%, rgba(#fff, 1) 30%, rgba(#e8e8e8, 1) 100% );
+
 
 
 
 // Font Colors
-$base-font-color: $gray-sdark;
-$action-color: $blue;
+$base-font-color: $gray-dark;
+$action-color: $green;
 
 // Border
 $base-border-color: $gray-light;
