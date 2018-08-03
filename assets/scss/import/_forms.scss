@@ -53,25 +53,25 @@ select[multiple=multiple] {
 
   transition: $base-transition;
 
-  border: $base-border;
-  border-radius: $base-border-radius;
+  //border: $base-border;
+  //border-radius: $base-border-radius;
   outline: none;
-  background-color: $base-background-color;
+  //background-color: $base-background-color;
   box-shadow: $form-box-shadow;
   &:hover {
     border-color: shade($base-border-color, 20%);
   }
   &:focus {
-    border-color: $action-color;
+    //border-color: $action-color;
     outline: none;
     box-shadow: $form-box-shadow-focus;
   }
   &:disabled {
     cursor: not-allowed;
 
-    background-color: shade($base-background-color, 5%);
+    //background-color: shade($base-background-color, 5%);
     &:hover {
-      border: $base-border;
+      //border: $base-border;
     }
   }
 }

@@ -196,10 +196,10 @@ function wpeFootNav() {
   );
 }
 // WPE sidebar navigation
-function wpeSideNav() {
+function wpeLangNav() {
   wp_nav_menu(
   array(
-    'theme_location'  => 'sidebar-menu',
+    'theme_location'  => 'lang-menu',
     'menu'            => '',
     'container'       => 'div',
     'container_class' => 'menu-{menu slug}-container',
@@ -212,7 +212,7 @@ function wpeSideNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="sidebarnav">%3$s</ul>',
+    'items_wrap'      => '<ul class="langnav">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -222,9 +222,9 @@ function wpeSideNav() {
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 function register_html5_menu() {
   register_nav_menus(array(
-    'header-menu' => __('Меню в шапке', 'wpeasy'),
-    'sidebar-menu' => __('Меню в сайдбар', 'wpeasy'),
-    'footer-menu' => __('Меню в подвал', 'wpeasy')
+    'header-menu' => __('Головне меню', 'wpeasy'),
+    'lang-menu' => __('Мовне меню', 'wpeasy'),
+    'footer-menu' => __('Меню в Футер', 'wpeasy')
   ));
 }
 //  If Dynamic Sidebar Existsов
@@ -280,7 +280,7 @@ function wpeExcerpt($length_callback = '', $more_callback = '') {
   $output = '<p>' . $output . '</p>';
   echo $output;
 }
-
+add_filter('excerpt_more', '...');
 //  Custom View Article link to Post
 //  RU: Добавляем "Читать дальше" к обрезанным записям
 /*
@@ -689,6 +689,8 @@ function disable_emojicons_tinymce( $plugins ) {
 
 
 
+
+
 /*Filter Page by Template*/
 class FilterPagesByTemplate {
   public function __construct(){
@@ -768,6 +770,53 @@ class FilterPagesByTemplate {
 
 new FilterPagesByTemplate();
 
+add_action('init', 'register_partners');
+function register_partners(){
+    register_post_type('partner', array(
+        'label'  => null,
+        'labels' => array(
+          'name'=> __('Partners'),
+          'singular_name' =>__('Partner'),
+          'add_new' => __('Add'),
+          'add_new_item' => __('Add Service'),
+          'edit' => __('Edit'),
+          'edit_item' => __('Edit'),
+          'new-item' => __('Add'),
+          'view' => __('View'),
+          'view_item' => __('View'),
+          'search_items' => __('Search'),
+          'not_found' => __('Not Found'),
+          'not_found_in_trash' => __('Not Found'),
+          'parent' => __('Parent'),
+        ),
+        'public'             => true,
+        'publicly_queryable' => false,
+        'show_ui'            => true,
+        'query_var'          => true,
+        'menu_icon'          => 'dashicons-welcome-learn-more',
+        'capability_type'    => 'page',
+        'hierarchical'       => false,
+        'menu_position'      => 9,
+        'supports'           => array('title','editor','author','thumbnail','excerpt'),
+        'rewrite'        => array( 'slug'=>'partners')
+    ) );
+}
 
 
+
+//trim title
+function the_title_excerpt($before = '', $after = '', $echo = true, $length = false){
+    $title = get_the_title();
+
+    if ( $length && is_numeric($length) && strlen($title) > $length ) {
+        $title = substr( $title, 0, $length );
+        $title = apply_filters('the_title_excerpt', $before . $title . $after, $before, $after);
+    }
+
+    if ( $echo ){
+        echo $title;
+    }else{
+        return $title;
+    }
+}
 ?>

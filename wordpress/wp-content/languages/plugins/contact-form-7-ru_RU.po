@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-06-04 21:00:18+0000\n"
+"PO-Revision-Date: 2018-08-03 05:32:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -640,7 +640,7 @@ msgstr "в раскрывающемся меню"
 
 #: modules/quiz.php:207
 msgid "One pipe-separated question-answer pair (e.g. The capital of Brazil?|Rio) per line."
-msgstr "Одна разделенная строка для пары ответ-вопрос в каждой строке (например: столица Бразилии?|Rio)."
+msgstr "Одна разделенная строка для пары ответ-вопрос в каждой строке (например: столица Бразилии?|Рио)."
 
 #: modules/quiz.php:202 modules/quiz.php:205
 msgid "Questions and answers"

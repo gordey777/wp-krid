@@ -1,23 +1,39 @@
-<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-  <div id="post-<?php the_ID(); ?>" <?php post_class('looper'); ?>>
+<?php if (have_posts()): $i == 0?>
+      <div class="row blog-items">
 
-    <a rel="nofollow" class="feature-img" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-      <?php if ( has_post_thumbnail()) { ?>
-        <img src="<?php echo the_post_thumbnail_url('medium'); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
-      <?php } else { ?>
-        <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
-      <?php } ?>
-    </a><!-- /post thumbnail -->
+  <?php while (have_posts()) :
+    the_post();
+          if ( has_post_thumbnail()) {
+            $image = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+          } else {
+            $image = catchFirstImage();
+          }
+          $itemClass = 'col-lg-4';
+          $contentClass = 'col-12';
+          if ( $i == 0) {
+            $itemClass = 'col-lg-12 first-item';
+            $contentClass = 'col-lg-6';
+          }
+          ?>
+          <div id="post-<?php the_ID(); ?>" class="looper <?php echo $itemClass; ?>">
+            <div  <?php post_class('row d-flex align-items-stretch align-content-start flex-wrap'); ?>>
+              <a href="<?php the_permalink(); ?>" class="<?php echo $contentClass; ?> item-thumb-wrap ratio" data-hkoef=".45" title="<?php the_title(); ?>" rel="nofollow">
+                <div class="item-thumb" style="background-image: url(<?php echo $image; ?>)"></div>
+              </a>
+              <div class="item-content <?php echo $contentClass; ?>">
+                <div class="item-title"><?php the_title_excerpt('', '...', true, '75'); ?><div class="title-decor"></div></div>
+                <div class="item-text"><?php wpeExcerpt('wpeExcerpt40'); ?></div>
+                <div class="more-wrap"><a href="<?php the_permalink(); ?>" class="btn btn-light more-btn" title="<?php the_title(); ?>"><?php the_field('button_partners'); ?></a></div>
+              </div>
 
-    <h2 class="inner-title">
-      <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-    </h2><!-- /post title -->
+            </div>
+          </div>
 
-    <span class="date"><?php the_time('j F Y'); ?> <span><?php the_time('G:i'); ?></span></span>
-    <span class="author"><?php _e( 'Published by', 'wpeasy' ); ?> <?php the_author_posts_link(); ?></span>
-    <span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpeasy' ), __( '1 Comment', 'wpeasy' ), __( '% Comments', 'wpeasy' )); ?></span><!-- /post details -->
 
-    <?php wpeExcerpt('wpeExcerpt40'); ?>
+          <?php
+          $i++;
 
-  </div><!-- /looper -->
-<?php endwhile; endif; ?>
+endwhile; ?>
+
+      </div>
+<?php endif; ?>

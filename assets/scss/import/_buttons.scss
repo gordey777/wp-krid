@@ -6,38 +6,121 @@ input[type='submit'],
 button {
   font-family: $base-font-family;
   font-size: $base-font-size;
-  font-weight: 600;
+  //font-weight: 600;
   line-height: 1;
 
   display: inline-block;
 
-  padding: .75em 1em;
+  padding: 20px;
 
   cursor: pointer;
   user-select: none;
   transition: $base-transition;
+  text-align: center;
   vertical-align: middle;
   white-space: nowrap;
   text-decoration: none;
+  text-transform: uppercase;
 
-  color: #fff;
-  border: none;
-  border-radius: $base-border-radius;
-  background-color: $action-color;
+  color: #000;
+  border: 1px solid $gray-dark;
+  background: transparent;
 
   -webkit-font-smoothing: antialiased;
   &:hover,
   &:focus {
     color: #fff;
-    background-color: darken($action-color, 15%);
+    border-color: $red;
     outline: 0;
+    background: $red;
   }
   &:active {
-    color: lighten($action-color, 15%);
+    color: lighten($red, 15%);
   }
   &:disabled {
     cursor: not-allowed;
 
     opacity: .5;
+  }
+  &.btn-light {
+    border-color: $green;
+    &:hover,
+    &:focus {
+      color: #fff;
+      border-color: $green;
+      background: $green;
+    }
+    &:active {
+      color: lighten($green, 15%);
+    }
+  }
+  &.btn-red {
+    color: #fff;
+    border-color: $red;
+    background: $red;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $gray-dark;
+      border-color: $red;
+      background: transparent;
+    }
+  }
+  &.btn-green {
+    color: #fff;
+    border-color: $green;
+    background: $green;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $gray-dark;
+      border-color: $green;
+      background: transparent;
+    }
+  }
+  &.btn-red,
+  &.btn-green {
+    &.dark {
+      &:hover,
+      &:active,
+      &:focus {
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+.btn-wrap {
+  overflow: hidden;
+
+  text-align: center;
+  .btn {
+    min-width: calc(33.333% - 30px);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+.btn-decor {
+  position: relative;
+  &:before,
+  &:after {
+    position: absolute;
+    top: 50%;
+
+    display: inline-block;
+
+    width: 70px;
+    height: 1.3px;
+
+    content: '';
+
+    background: #747a81;
+  }
+  &:before {
+    left: -100px;
+  }
+  &:after {
+    right: -100px;
   }
 }

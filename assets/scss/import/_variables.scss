@@ -32,11 +32,17 @@ $base-z-index: 0;
 $red: #b61528;
 $red-dark: #6e000d;
 $green: #87b315;
-$gray-medium: #e8e8e8;
+$green-dark: #6b9303;
+$gray-light: #747a81;
+$gray-medium: #565c63;
 $gray-dark: #3b4046;
-$gray-light: #ddd;
 
 
+$bot-center-green: linear-gradient(to bottom, rgba(#3b4046, 0) 0%, rgba(#87b315, 1) 50%, rgba(#3b4046, 0) 100%);
+$grad-right-green: linear-gradient(to right, rgba(#3b4046, 0) 0%, rgba(#87b315, 1) 100%,);
+$bot-center-red: linear-gradient(to bottom, rgba(#3b4046, 0) 0%, rgba(#b61528, 1) 50%, rgba(#3b4046, 0) 100%);
+$grad-center-red: linear-gradient(to left, rgba(#fff, 0) 0%, rgba(#b61528, 1) 50%, rgba(#fff, 0) 100%);
+$bot-center-white: linear-gradient(to bottom, rgba(#3b4046, 0) 0%, rgba(#fff, 1) 50%, rgba(#3b4046, 0) 100%);
 
 
 // Font Colors

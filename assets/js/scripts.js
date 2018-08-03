@@ -7866,24 +7866,6 @@ if (typeof jQuery === "undefined") {
 
 jQuery(document).ready(function($) {
 
-  jQuery('.scroll a').on('click', function() {
-
-    var scrollSRC = jQuery(this).attr('href'),
-      scrollAnc = scrollSRC.substr(1);
-    if ($(document).find(scrollAnc).length > 0) {
-
-
-      var scrollPos = jQuery(scrollAnc).offset().top - 100;
-
-      jQuery('body,html').animate({
-        scrollTop: scrollPos
-      }, 500);
-
-      return false;
-    }
-  })
-
-
 
   //$('.lds-ring').fadeOut(400);
   //video
@@ -7894,15 +7876,18 @@ jQuery(document).ready(function($) {
   });
 
 
+
+
   // $('.menu-item a[href$="#"]').click(function(event) {
   //   return false;
   // });
-
+  //sliders
   $('#main_slider').owlCarousel({
 
     loop: true,
     items: 1,
 
+    navContainerClass: 'container owl-nav',
     navText: ['', ''],
     autoplay: true,
     autoplayTimeout: 5000,
@@ -7918,81 +7903,71 @@ jQuery(document).ready(function($) {
         nav: true
       },
 
-    }
+    },
+    //onInitialized: navWrap,
   });
-  $('.sertif-slider').owlCarousel({
+
+  $('.partners-slider').owlCarousel({
 
     rewind: true,
-
+    items: 1,
+    navContainerClass: 'container owl-nav',
     navText: ['', ''],
     autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
     margin: 0,
     dots: true,
+    //animateOut: 'fadeOut',
     responsive: {
       0: {
-        items: 1
+        nav: false
       },
       560: {
-        items: 2
-      },
-      768: {
-
-        items: 2
+        nav: true
       },
 
-    }
+    },
+    //onInitialized: navWrap,
   });
 
-  $('.about-slider').owlCarousel({
-    items: 1,
-    rewind: true,
+  $('.reviews-slider').owlCarousel({
 
+    rewind: true,
+    items: 1,
+    navContainerClass: 'container owl-nav',
+    navText: ['', ''],
     autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
-    margin: 20,
+    margin: 0,
     dots: true,
+    //animateOut: 'fadeOut',
+    responsive: {
+      0: {
+        nav: false
+      },
+      560: {
+        nav: true
+      },
 
+    },
+    //onInitialized: navWrap,
   });
 
-  $('.tab-item-slider').each(function(index, el) {
 
-
-    $(this).owlCarousel({
-      //items: 2,
-      rewind: true,
-      //loop: true,
-      //navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
-      navText: ['', ''],
-      autoplay: true,
-      autoplayTimeout: 5000,
-      autoplayHoverPause: true,
-      margin: 20,
-      dots: true,
-      responsive: {
-        0: {
-          items: 1
-        },
-        560: {
-          items: 2
-        },
-        768: {
-
-          items: 3
-        },
-        992: {
-          //nav: true,
-          items: 3
-        },
-        1200: {
-          //nav: true,
-          items: 3
-        }
-      }
+    $('.owl-carousel').each(function(index, el) {
+      $(this).find('.owl-nav').wrap('<div class="owl-nav-wrap"></div>');
     });
-  });
+
+    //eve$(nt.target.
+
+
+
+
+
+  //end sliders
+
 
   //TABS
   $('.tab-item:not(.active)').fadeOut();
@@ -8069,140 +8044,6 @@ jQuery(document).ready(function($) {
     var formtarg = $(this).data('formtarg');
     $('#modal-order-target').val(formtarg);
   });
-  //revValid();
-
-
-  /*  function revValid() {
-      var button = $('#review-submit');
-
-
-      var inputName = $('#review-name');
-      var formName = inputName.val();
-      var inputText = $('#review-comment');
-      var formText = inputText.val();
-
-      if (!formName || formName == '' || !formText || formText == '') {
-        $('#review-submit').addClass('loadingform');
-        button.attr("disabled", true);
-      } else {
-        $('#review-submit').removeClass('loadingform');
-        button.attr("disabled", false);
-      }
-    }*/
-
-  /*  $('#review-name, #review-comment').on('change', function(e) {
-      var inputName = $('#review-name');
-      var formName = inputName.val();
-      var inputText = $('#review-comment');
-      var formText = inputText.val();
-      inputName.removeClass('active');
-      inputText.removeClass('active');
-      if (!formName || formName == '') {
-        inputName.addClass('active');
-      }
-      if (!formText || formText == '') {
-        inputText.addClass('active');
-      }
-      //revValid();
-    });*/
-
-
-
-
-  $("#input-img").change(function() {
-    uploadImg(this);
-    $('.review-img-block').show();
-  });
-
-
-
-  function uploadImg(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        var staticSquare = 150;
-        var image = new Image();
-        image.src = e.target.result;
-        image.onload = function() {
-          $('.review-add .input-img').css('background-image', 'url(' + this.src + ')');
-          validate();
-        };
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-
-
-  function validate() {
-    $("#file_error").html("");
-    $("#file_error").hide("fast");
-    $(".review-add .input-img").css("border-color", "transparent");
-    var file_size = $('#input-img')[0].files[0].size;
-    $('#review-submit').attr("disabled", false);
-    if (file_size > 1048576) {
-      $("#file_error").html("File size is greater than 1MB");
-      $(".review-add .input-img").css("border-color", "#FF0000");
-      $('#review-submit').attr("disabled", true);
-      $("#file_error").show("fast");
-      return false;
-    }
-    return true;
-  }
-
-
-  $('#commentform').submit(function() {
-    var filter = $('#commentform'),
-      buttontext = filter.find('button').text(),
-      successMass = $('.form-message').html();
-    console.log($('#input-img').val());
-
-    var review_name = jQuery('#review-name').val();
-    var review_comment = jQuery('#review-comment').val();
-    var file_data = jQuery('#input-img').prop('files')[0];
-    var form_data = new FormData();
-
-    form_data.append('input_img', file_data);
-    form_data.append('action', 'review_ajax');
-    form_data.append('review-name', review_name);
-    form_data.append('review-comment', review_comment);
-    var inputName = $('#review-name');
-    var formName = inputName.val();
-    var inputText = $('#review-comment');
-    var formText = inputText.val();
-    inputName.removeClass('active');
-    inputText.removeClass('active');
-    if (!formName || formName == '') {
-      inputName.addClass('active');
-    }
-    if (!formText || formText == '') {
-      inputText.addClass('active');
-    }
-
-
-
-    $.ajax({
-      url: adminAjax['ajaxurl'],
-      //data: filter.serialize(), // form data
-      data: form_data, // form data
-      type: 'POST', // POST
-      contentType: false,
-      processData: false,
-      beforeSend: function(xhr) {
-        //$('#rev_wrap').html('');
-      },
-      success: function(data) {
-        // console.log(data);
-        //
-        $('#rev_wrap').html(data);
-
-        $('#rev_wrap').html(successMass + "<br>" + data);
-        $('.form-message').css('display', 'block');
-      }
-    });
-
-    return false;
-  });
-
 
 
 
@@ -8213,11 +8054,6 @@ jQuery(window).resize(function(event) {
   autoRatio();
 
 });
-
-
-jQuery(window).scroll(function() {
-  scrollActive();
-}).scroll();
 
 
 // function reinitCF7() {
@@ -8248,33 +8084,5 @@ function autoRatio() {
 
       });
     }, 100);
-  })();
-}
-
-function scrollActive() {
-  (function() {
-    var arrMenu = [],
-      i = 0;
-    $('.scroll a').each(function() {
-      var at = $(this).attr('href');
-      arrMenu[i] = at.substr(1);
-      i++;
-    });
-    var lenMenu = arrMenu.length;
-    for (var i = 0; i < lenMenu; i++) {
-      var targEl = jQuery(arrMenu[i]);
-      if (targEl.visible()) {
-        jQuery('.scroll.active').removeClass('active');
-
-        var activeIthem = jQuery('.scroll a[ href = "/' + arrMenu[i] + '"]');
-
-        activeIthem.parent('li').addClass('active');
-        //console.log('yyyyeee');
-      } else {
-        var activeIthem = jQuery('.scroll a[ href = "/' + arrMenu[i] + '"]');
-        //console.log('aaaaa');
-        activeIthem.parent('li').removeClass('active');
-      }
-    }
   })();
 }

@@ -1,4 +1,5 @@
 <?php
+define('WP_CACHE', false);
 define('DB_NAME', 'krida');
 define('DB_USER', 'user');
 define('DB_PASSWORD', 'user');
@@ -16,8 +17,8 @@ define('DB_COLLATE', 'utf8mb4_unicode_ci');
 
 $table_prefix  = 'ldgfl_';
 
-define('WPLANG', 'ru_RU');
-define('DISALLOW_FILE_EDIT', true);
+define('WPLANG', 'uk_UK');
+//define('DISALLOW_FILE_EDIT', true);
 define('WP_DEBUG', false);
 define('WPCF7_AUTOP', false);
 

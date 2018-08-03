@@ -20,6 +20,7 @@
   <!-- css + javascript -->
   <?php wp_head(); ?>
 </head>
+<?php $front__id = (int)(get_option( 'page_on_front' )); ?>
 <body <?php body_class(); ?>>
 <!-- wrapper -->
 <div class="wrapper">
@@ -37,23 +38,27 @@
             <?php } ?>
           </div><!-- /logo -->
           <div class="head-phones col-lg-4">
-            <a href="tel:+" class="main-phone">+38 <span class="span">096</span> 123 96 69</a>
-            <ul class="phones-list">
-              <li><a href="tel:+">+38 <span>096</span> 123 96 69</a></li>
-            </ul>
+            <?php if( have_rows('contacts_phones', $front__id) ): ?>
+              <div class="phones-list-wrap">
+                <ul class="phones-list">
+                  <?php while( have_rows('contacts_phones', $front__id) ):
+                    the_row(); ?>
+                    <li><a href="tel:+<?php echo preg_replace("/[^0-9]/", '', get_sub_field('phone')); ?>"><?php the_sub_field('phone');?></a></li>
+                  <?php endwhile; ?>
+                </ul>
+                </div>
+            <?php endif; ?>
           </div>
           <div class="header-address col-lg-4">
-            <div class="addres">
-              <p>м. Львів, вул. Здоров’я, 8 <br><span>(бічна Київської)</span></p>
-              <p>Понедельник - Пятница<br>8:00 - 20:00</p>
+            <div class="addres-wrap">
+              <p class="address"><?php the_field('contact_address', $front__id);?></p>
+              <p class="worktime"><?php the_field('worktime', $front__id);?></p>
             </div>
-            <a href="" class="header-rout">Прокласти маршрут</a>
+            <?php $location = get_field('location', $front__id);?>
+            <a rel="nofollow" href="https://www.google.com/maps?saddr=My+Location&daddr=<?php echo $location['lat']; ?>,<?php echo $location['lng']; ?>" class="header-rout"><?php pll_e('ПРОКЛАСТИ МАРШРУТ'); ?></a>
           </div>
-          <div class="col-lg-1">
-            <ul class="lang-nav">
-              <li><a href="">en</a></li>
-              <li><a href="">ua</a></li>
-            </ul>
+          <div class="col-md-1">
+            <?php wpeLangNav(); ?>
           </div>
         </div>
       </div>
@@ -65,7 +70,7 @@
             <?php wpeHeadNav(); ?>
           </nav>
           <div class="callback-wrapp col-lg-3">
-            <a href="#" class="callback"><span class="icon-cb"></span>Замовити дзвінок</a>
+            <a href="#callbackModal" class="callback" data-toggle="modal" title="<?php pll_e('ЗАМОВИТИ ДЗВІНОК'); ?>"><span class="icon-cb"></span><?php pll_e('ЗАМОВИТИ ДЗВІНОК'); ?></a>
           </div>
         </div>
       </div>
