@@ -91,7 +91,7 @@
           <div class="row">
             <div class="section-title dark col-12"><?php the_field('adv_title'); ?></div>
           </div>
-          <div class="adv-items">
+          <div class="adv-items row">
             <?php $i = 0;
 
             while( have_rows('advantages') ): the_row();
@@ -99,7 +99,7 @@
               $i++;
               $image = get_sub_field('icon');
               ?>
-              <div class="adv-item">
+              <div class="adv-item col-sm-4">
                 <div class="adv-icon-wrap">
                 <div class="adv-icon-border">
                   <div class="icon" style="background-image: url(<?php echo $image['url']; ?>)"></div>
@@ -137,7 +137,7 @@
             <div class="row">
               <div class="partner-item col-lg-10 offset-lg-1">
                 <div class="row">
-                  <div class="col-lg-6 img-wrap">
+                  <div class="col-md-6 offset-md-0 img-wrap col-8 offset-2">
                     <div class="img-shadow">
                       <div class="shadow"></div>
                     </div>
@@ -146,7 +146,7 @@
                       </div>
 
                   </div>
-                  <div class="partner-content col-lg-6">
+                  <div class="partner-content col-md-6">
                     <div class="partner-name"><?php the_field('partner_name'); ?></div>
                     <div class="partner-sename"><?php the_field('partner_sename'); ?></div>
                     <div class="partner-pos"><?php the_field('partner_position'); ?></div>
@@ -192,14 +192,14 @@
           <div class="section-title dark col-12"><?php the_field('why_title'); ?></div>
           <div class="subtitle"><?php the_field('why_subtitle'); ?></div>
         </div>
-        <div class="why-items">
+        <div class="why-items row">
           <?php $i = 0;
           while( have_rows('why_list') ): the_row();
             // vars
             $i++;
             $image = get_sub_field('icon');
             ?>
-            <div class="why-item">
+            <div class="why-item col-sm-4">
               <div class="why-icon-wrap">
                 <div class="icon" style="background-image: url(<?php echo $image['url']; ?>)"></div>
               </div>
@@ -261,24 +261,30 @@
             } else {
               $image = catchFirstImage();
             }
+            $trimTitle = get_the_title();
+            $maxchar = 45;
+            if ( mb_strlen( $trimTitle ) > $maxchar ){
+              $trimTitle = mb_substr( $trimTitle, 0, $maxchar ) .'...';
+            }
+
             $itemClass = 'col-lg-4';
             $contentClass = 'col-12';
             if ( $i == 0) {
               $itemClass = 'col-lg-12 first-item';
               $contentClass = 'col-lg-6';
             } ?>
-            <div id="post-<?php the_ID(); ?>" class="looper <?php echo $itemClass; ?>">
-              <div class="row d-flex align-items-stretch align-content-start flex-wrap">
-                <a href="<?php the_permalink(); ?>" class="<?php echo $contentClass; ?> item-thumb-wrap ratio" data-hkoef=".45" title="<?php the_title(); ?>" rel="nofollow">
-                  <div class="item-thumb" style="background-image: url(<?php echo $image; ?>)"></div>
-                </a>
-                <div class="item-content <?php echo $contentClass; ?>">
-                  <div class="item-title"><?php the_title_excerpt('', '...', true, '75'); ?><div class="title-decor"></div></div>
-                  <div class="item-text"><?php wpeExcerpt('wpeExcerpt40'); ?></div>
-                  <div class="more-wrap"><a href="<?php the_permalink(); ?>" class="btn more-btn" title="<?php the_title(); ?>"><?php pll_e('ДЕТАЛЬНІШЕ'); ?></a></div>
+              <div id="post-<?php the_ID(); ?>" class="looper <?php echo $itemClass; ?>">
+                <div  <?php post_class('row d-flex align-items-stretch align-content-start flex-wrap'); ?>>
+                  <a href="<?php the_permalink(); ?>" class="<?php echo $contentClass; ?> item-thumb-wrap ratio" data-hkoef=".55" title="<?php the_title(); ?>" rel="nofollow">
+                    <div class="item-thumb" style="background-image: url(<?php echo $image; ?>)"></div>
+                  </a>
+                  <div class="item-content <?php echo $contentClass; ?>">
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="nofollow" class="item-title"><?php echo $trimTitle; ?><div class="title-decor"></div></a>
+                    <div class="item-text"><?php wpeExcerpt('wpeExcerpt40'); ?></div>
+                    <div class="more-wrap"><a href="<?php the_permalink(); ?>" class="btn more-btn" title="<?php the_title(); ?>"><?php pll_e('ДЕТАЛЬНІШЕ'); ?></a></div>
+                  </div>
                 </div>
               </div>
-            </div>
             <?php
             $i++;
           endwhile;
@@ -334,14 +340,26 @@
   <section class="section-callback bot-shadow">
     <div class="container">
       <div class="row">
-        <div class="col-8 offset-2 quote-wrap">
+        <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 quote-wrap">
           <blockquote><?php the_field('feedback_quote', $front__id);?></blockquote>
           <div class="by-line"><?php the_field('fq_signature', $front__id);?></div>
         </div>
       </div>
     </div>
-    <?php $contform = get_field('feedback_form', $front__id);?>
-    <?php echo do_shortcode($contform);?>
+    <?php if(get_field('feedback_form', $front__id)):?>
+      <?php $contform = get_field('feedback_form', $front__id);?>
+      <div class="feedback-form">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-1 col-sm-8 offset-sm-2 col-10 offset-1 contact-form-wrap">
+              <div class="cont-form-decor"></div>
+              <?php echo do_shortcode($contform);?>
+            </div>
+            <div class="col-6 cf-bg-wrap"><div class="contact-form-bg"></div></div>
+          </div>
+        </div>
+      </div>
+    <?php endif;?>
   </section>
 
   <section class="section-contacts bot-shadow">

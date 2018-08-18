@@ -5,7 +5,6 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' :'; } ?> <?php bloginfo( 'name' ); ?></title>
 
   <link href="http://www.google-analytics.com/" rel="dns-prefetch"><!-- dns prefetch -->
 
@@ -24,20 +23,21 @@
 <body <?php body_class(); ?>>
 <!-- wrapper -->
 <div class="wrapper">
-  <header>
+  <header class="">
     <div class="top-line">
       <div class="container">
+
         <div class="row d-flex flex-row align-items-center">
-          <div class="logo col-lg-3">
+          <div class="logo col-3">
             <?php if ( !is_front_page() && !is_home() ){ ?>
               <a href="<?php echo home_url(); ?>">
             <?php } ?>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php echo wp_get_document_title(); ?>" title="<?php echo wp_get_document_title(); ?>" class="logo-img">
             <?php if ( !is_front_page() && !is_home() ){ ?>
               </a>
             <?php } ?>
           </div><!-- /logo -->
-          <div class="head-phones col-lg-4">
+          <div class="head-phones col-lg-4 col-sm-6 col-5">
             <?php if( have_rows('contacts_phones', $front__id) ): ?>
               <div class="phones-list-wrap">
                 <ul class="phones-list">
@@ -49,7 +49,7 @@
                 </div>
             <?php endif; ?>
           </div>
-          <div class="header-address col-lg-4">
+          <div class="header-address col-md-4 mob-nav">
             <div class="addres-wrap">
               <p class="address"><?php the_field('contact_address', $front__id);?></p>
               <p class="worktime"><?php the_field('worktime', $front__id);?></p>
@@ -57,23 +57,24 @@
             <?php $location = get_field('location', $front__id);?>
             <a rel="nofollow" href="https://www.google.com/maps?saddr=My+Location&daddr=<?php echo $location['lat']; ?>,<?php echo $location['lng']; ?>" class="header-rout"><?php pll_e('ПРОКЛАСТИ МАРШРУТ'); ?></a>
           </div>
-          <div class="col-md-1">
+          <div class="col-md-1 lang-nav-wrap">
             <?php wpeLangNav(); ?>
           </div>
+          <div class="callback-wrapp col-md-3">
+            <a href="#callbackModal" class="callback" data-toggle="modal" title="<?php pll_e('ЗАМОВИТИ ДЗВІНОК'); ?>"><span class="icon-cb"></span><?php pll_e('ЗАМОВИТИ ДЗВІНОК'); ?></a>
+          </div>
         </div>
+        <div id="hamburger" class="humb-toggle-switch humb-toggle-switch__htx"><span style="color:transparent;">toggle menu</span></div>
       </div>
     </div>
     <div class="nav-line">
       <div class="container">
         <div class="row">
-          <nav class="col-lg-9">
+          <nav class="head-nav-wrap col-md-9">
             <?php wpeHeadNav(); ?>
           </nav>
-          <div class="callback-wrapp col-lg-3">
-            <a href="#callbackModal" class="callback" data-toggle="modal" title="<?php pll_e('ЗАМОВИТИ ДЗВІНОК'); ?>"><span class="icon-cb"></span><?php pll_e('ЗАМОВИТИ ДЗВІНОК'); ?></a>
-          </div>
+
         </div>
       </div>
     </div>
   </header>
-

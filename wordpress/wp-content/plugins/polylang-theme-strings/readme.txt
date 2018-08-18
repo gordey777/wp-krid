@@ -2,9 +2,9 @@
 Contributors: modeewine
 Donate link: http://modeewine.com/en-donation
 Tags: extension, polylang, multilingual, translate, translation, language, multilanguage, international, localization
-Requires at least: 3.8
-Tested up to: 4.8.1
-Stable tag: 3.5
+Requires at least: 4.0
+Tested up to: 4.9.8
+Stable tag: 4.0
 License: GPL2
 
 Automatic scanning of strings translation in the theme and registration of them in Polylang plugin. Extension for Polylang plugin.
@@ -13,7 +13,7 @@ Automatic scanning of strings translation in the theme and registration of them 
 
 = What is «Polylang Theme Strings» and what for is it?  =
 
-This plugin gives additional features to the plugin Polylang. It automatically scans all templates files and scripts of the active WP theme for available strings that can be translated. For example:
+This plugin gives additional features to the plugin Polylang. It automatically scans all templates files and scripts of the active WP theme (and all plugins) for available strings that can be translated. For example:
 
 * `pll__('...');`
 * `pll_e('...');`
@@ -26,6 +26,8 @@ Don’t forget that in the example are described the PHP-function calls, that is
 You have to install the plugins «Polylang» and «Polylang Theme Strings» on your multilanguage WordPress CMS project and they must be both active. When you are in the settings of plugin (Polylang) in the tab «Strings translation» the «Polylang Theme Strings» scans automatically the active theme of your project, find all the code strings that needed to be translated, adds them to the register, displays them on that page and gives to user the ability to translate these strings.
 
 Like you can see, the «Polylang Theme Strings» is perfectly integrate with the «Polylang» plugin and works in automatically mode – it is comfortable, simple, and useful!
+
+From version 4.0 «Polylang Theme Strings» got settings page where you can configure the search strings-translations more deeply.
 
 Learn more in <http://modeewine.com/en-polylang-theme-strings>.
 
@@ -44,6 +46,17 @@ Learn more in <http://modeewine.com/en-polylang-theme-strings>.
 1. Screen of «Polylang» strings translate page settings and when «Polylang Theme Strings» in action.
 
 == Changelog ==
+
+= 4.0 (2018-08-15) =
+
+* Integrated new feature: include the search for native string functions of WordPress (configurable on setting page).
+* Integrated new feature: include the search of strings-translation for WordPress plugins (configurable on setting page).
+* Merged the menu of «Polylang» and «Polylang Theme Strings».
+* Own plugin settings page.
+* Fixed small bug in the theme-files search-system.
+* Tested and optimized compatibility up to WordPress 4.9.8.
+* Tested and optimized compatibility up to Polylang 2.3.9.
+* Improved code.
 
 = 3.5 (2017-09-11) =
 

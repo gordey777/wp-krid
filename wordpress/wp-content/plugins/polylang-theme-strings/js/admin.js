@@ -2,6 +2,7 @@ window.mw_polylang_strings_admin = function(){
     var _this = {
         attr: {
             prefix: '',
+            settings: [],
             urls: []
         },
 
@@ -25,6 +26,11 @@ window.mw_polylang_strings_admin = function(){
                     var html  = '<span class="caption">&laquo;<b>' + _this.lng[10] + '</b>&raquo; ' + _this.lng[11] + ' [v.<b>' + _this.lng[12] + '</b>].</span>';
                         html += '<span>' + _this.lng[20] + ': <i><a href="' + _this.attr.urls['polylang_strings_theme_current'] + '">' + _this.lng[21] + '</a></i></span>';
                         html += '<span>' + _this.lng[30] + ': <i><a href="' + _this.attr.urls['polylang_strings'] + '">' + _this.lng[31] + '</a></i></span>';
+
+                        if (_this.attr.settings['search_plugins_strings']){
+                            html += '<span>' + _this.lng[35] + ': <i><a href="' + _this.attr.urls['polylang_plugins'] + '">' + _this.lng[36] + '</a></i></span>';
+                        }
+
                         html += '<span class="links">';
                         html += '<a href="https://modeewine.com/en-polylang-theme-strings" target="_blank">' + _this.lng[40] + '</a>';
                         html += '<a href="https://modeewine.com/en-donation" target="_blank">' + _this.lng[50] + '</a>';
@@ -53,7 +59,12 @@ window.mw_polylang_strings_admin = function(){
 
                 if (tr.length && pll_tr.length)
                 {
+                    jQuery('<div class="link-pll-strings"><a href="' + _this.attr.urls['polylang_theme_strings_settings'] + '">' + _this.lng[71] + '</a></div>').insertAfter(jQuery('.plugin-description', tr));
                     jQuery('<div class="link-pll-strings"><a href="' + _this.attr.urls['polylang_strings'] + '">' + _this.lng[70] + '</a></div>').insertAfter(jQuery('.plugin-description', tr));
+                }
+                else
+                if (tr.length && !pll_tr.length){
+                    jQuery('<div class="link-pll-strings warning">' + _this.lng[80] + ' &laquo;<a href="https://wordpress.org/plugins/polylang" target="_blank">' + _this.lng[81] + '</a>&raquo;</div>').insertAfter(jQuery('.plugin-description', tr));
                 }
             }
         }

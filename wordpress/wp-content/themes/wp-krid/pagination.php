@@ -1,3 +1,5 @@
-<div class="pagination">
-  <!-- noindex --><?php html5wp_pagination(); ?><!-- /noindex -->
-</div><!-- /pagination -->
+
+  <div class="pagination">
+    <?php html5wp_pagination(); ?>
+  </div>
+

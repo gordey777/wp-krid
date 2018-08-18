@@ -38,11 +38,6 @@ function wpeStyles()  {
   wp_dequeue_style('fancybox');
   wp_dequeue_style('wp_dequeue_style');
 
-  //wp_register_style('wpeasy-owl', '//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.6/assets/owl.carousel.min.css', array(), '2.1.6', 'all');
-  //wp_enqueue_style('wpeasy-owl'); // Enqueue it!
-  //wp_register_style('wpeasy-font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), '4.7.0', 'all');
-  //wp_enqueue_style('wpeasy-font-awesome'); // Enqueue it!
-
   wp_register_style('wpeasy-style', get_template_directory_uri() . '/css/main.css', array(), '1.0', 'all');
   wp_enqueue_style('wpeasy-style'); // Enqueue it!
 }
@@ -60,8 +55,6 @@ function wpeHeaderScripts() {
     wp_register_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), '2.8.3');
     wp_enqueue_script('modernizr');
 
-    //wp_register_script('OwlCarousel2', '//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.6/owl.carousel.min.js', array(), '2.1.6');
-    //wp_enqueue_script('OwlCarousel2');
 
     wp_deregister_script( 'jquery-form' );
 
@@ -96,7 +89,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);*/
 
 
 // Move js and css to footer
-function remove_head_scripts() {
+/*function remove_head_scripts() {
   remove_action( 'wp_head', 'wp_print_styles', 8);
   remove_action('wp_head', 'wp_print_scripts');
   remove_action('wp_head', 'wp_print_head_scripts', 9);
@@ -108,7 +101,7 @@ function remove_head_scripts() {
   add_action('wp_footer', 'wp_enqueue_scripts', 5);
   add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
-add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );
+add_action( 'wp_enqueue_scripts', 'remove_head_scripts' );*/
 
 
 
@@ -166,7 +159,7 @@ function wpeHeadNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="headnav">%3$s</ul>',
+    'items_wrap'      => '<ul class="headnav  mob-nav">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -212,7 +205,7 @@ function wpeLangNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="langnav">%3$s</ul>',
+    'items_wrap'      => '<ul class="langnav mob-nav">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -227,7 +220,8 @@ function register_html5_menu() {
     'footer-menu' => __('Меню в Футер', 'wpeasy')
   ));
 }
-//  If Dynamic Sidebar Existsов
+
+/*//  If Dynamic Sidebar Existsов
 if (function_exists('register_sidebar')) {
   //  Define Sidebar Widget Area 1
   register_sidebar(array(
@@ -240,7 +234,7 @@ if (function_exists('register_sidebar')) {
     'after_title' => '</h6>'
   ));
   //  Define Sidebar Widget Area 2. If your want to display more widget - uncoment this
-  /*
+
   register_sidebar(array(
     'name' => __('Блок виджетов #2', 'wpeasy'),
     'description' => __('Description for this widget-area...', 'wpeasy'),
@@ -250,8 +244,8 @@ if (function_exists('register_sidebar')) {
     'before_title' => '<h6>',
     'after_title' => '</h6>'
   ));
-  */
-}
+
+}*/
 
 //  Custom Excerpts
 //  RU: Произвольное обрезание текста
@@ -281,16 +275,7 @@ function wpeExcerpt($length_callback = '', $more_callback = '') {
   echo $output;
 }
 add_filter('excerpt_more', '...');
-//  Custom View Article link to Post
-//  RU: Добавляем "Читать дальше" к обрезанным записям
-/*
-function html5_blank_view_article($more) {
-  global $post;
-  return '... <!-- noindex --><a rel="nofollow" class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'wpeasy') . '</a><!-- /noindex -->';
-}
-add_filter('excerpt_more', 'html5_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
-*/
-// Remove the <div> surrounding the dynamic navigation to cleanup markup
+
 add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
 function my_wp_nav_menu_args($args = '') {
   $args['container'] = false;
@@ -338,9 +323,10 @@ function html5wp_pagination() {
       'base' => str_replace($big, '%#%', get_pagenum_link($big)),
       'format' => '?paged=%#%',
       'current' => max(1, get_query_var('paged')),
-      'prev_text' => __('« Previous'),
-      'next_text' => __('Next »'),
-      'total' => $wp_query->max_num_pages
+      'prev_text' => '&#60;',
+      'next_text' => '&#62;',
+      'total' => $wp_query->max_num_pages,
+      'type' => 'list'
     )
   );
 }
@@ -424,18 +410,20 @@ function html5blankcomments($comment, $args, $depth) {
   <?php endif; ?>
 <?php }
 
+
+//ADD META TITLE
+add_theme_support('title-tag');
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
 remove_action('wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
 remove_action('wp_head', 'rsd_link'); // Display the link to the Really Simple Discovery service endpoint, EditURI link
 remove_action('wp_head', 'wlwmanifest_link'); // Display the link to the Windows Live Writer manifest file.
-remove_action('wp_head', 'index_rel_link'); // Index link
+//remove_action('wp_head', 'index_rel_link'); // Index link
 remove_action('wp_head', 'parent_post_rel_link', 10, 0); // Prev link
 remove_action('wp_head', 'start_post_rel_link', 10, 0); // Start link
 remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0); // Display relational links for the posts adjacent to the current post.
 remove_action('wp_head', 'wp_generator'); // Display the XHTML generator that is generated on the wp_head hook, WP version
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 // Add Filters
@@ -488,7 +476,7 @@ function easy_breadcrumbs() {
   $text['cpage'] = __('Review', 'wpeasy') . ' %s'; // текст 'Страница комментариев N'
 
 
-  $wrap_before = '<ul id="breadcrumbs" class="breadcrumbs">'; // открывающий тег обертки
+  $wrap_before = '<ul id="breadcrumbs" class="breadcrumbs col-12">'; // открывающий тег обертки
   $wrap_after = '</ul>'; // закрывающий тег обертки
   $sep = ' / '; // разделитель между "крошками"
   $sep_before = '<li class="separator">'; // тег перед разделителем
@@ -659,6 +647,7 @@ function easy_breadcrumbs() {
   }
 } // end of dimox_breadcrumbs()
 
+
 // to remove the /./ from links, use this filter
 // https://stackoverflow.com/questions/17798815/remove-category-tag-base-from-wordpress-url-without-a-plugin
 add_filter( 'term_link', function($termlink){
@@ -770,6 +759,8 @@ class FilterPagesByTemplate {
 
 new FilterPagesByTemplate();
 
+
+//PARTNER POST TUPE
 add_action('init', 'register_partners');
 function register_partners(){
     register_post_type('partner', array(
@@ -792,6 +783,7 @@ function register_partners(){
         'public'             => true,
         'publicly_queryable' => false,
         'show_ui'            => true,
+        'show_in_nav_menus'  => false,
         'query_var'          => true,
         'menu_icon'          => 'dashicons-welcome-learn-more',
         'capability_type'    => 'page',
@@ -804,19 +796,71 @@ function register_partners(){
 
 
 
-//trim title
-function the_title_excerpt($before = '', $after = '', $echo = true, $length = false){
-    $title = get_the_title();
+////////////////////////////////AJAX POSTS
 
-    if ( $length && is_numeric($length) && strlen($title) > $length ) {
-        $title = substr( $title, 0, $length );
-        $title = apply_filters('the_title_excerpt', $before . $title . $after, $before, $after);
-    }
+function ajax_post_func(){
+  $serv__ID = $_POST['postid'];
+  $posturl = $_POST['posturl'];
+  if( !isset( $_POST['posturl'])){
+    $serv__ID = url_to_postid($posturl);
+  }
 
-    if ( $echo ){
-        echo $title;
-    }else{
-        return $title;
+  if( isset( $_POST['posturl']) || isset( $_POST['posturl'])):
+    $args = array(
+      'post_type'      => 'page',
+      'posts_per_page'      => 1,
+      'page_id'      => $serv__ID,
+    );
+    $query = new WP_Query( $args );
+
+    if( $query->have_posts() ) :
+      while( $query->have_posts() ):
+        $query->the_post();
+          get_template_part('service-template');
+      endwhile;
+      wp_reset_postdata();
+    endif;
+    else: echo 'ERROR';
+
+  endif;
+  die();
+}
+
+add_action('wp_ajax_ajaxgetpost', 'ajax_post_func');
+add_action('wp_ajax_nopriv_ajaxgetpost', 'ajax_post_func');
+
+
+
+//IMG REDIRECT
+add_action('template_redirect', 'template_redirect_attachment');
+function template_redirect_attachment() {
+    global $post;
+
+    if (is_attachment()) {
+        wp_redirect(get_permalink($post->post_parent));
     }
 }
-?>
+
+
+//IMG WRAP
+function give_linked_images_class($content) {
+
+  $classes = 'content-img';
+
+  if ( preg_match('/<p.*?><img/', $content) ) {
+
+    $content = preg_replace('/(<p.*?)><img/', '$1 class="' . $classes . '" ><img', $content);
+  }
+  else if ( preg_match('/<a.*? class=".*?"><img/', $content) ) {
+
+    $content = preg_replace('/(<a.*? class=".*?)(".*?><img)/', '$1 ' . $classes . '$2', $content);
+  } else {
+
+    $content = preg_replace('/(<a.*?)><img/', '$1 class="' . $classes . '" ><img', $content);
+  }
+
+  return $content;
+}
+
+add_filter('the_content','give_linked_images_class');
+

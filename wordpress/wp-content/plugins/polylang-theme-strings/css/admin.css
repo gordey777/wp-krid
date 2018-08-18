@@ -24,7 +24,7 @@
 #mw_polylang_strings_polylang_info_area > span {
     display: block;
     font-size: 12px;
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 #mw_polylang_strings_polylang_info_area > span > i {
@@ -64,5 +64,11 @@
 
 #polylang-theme-strings.active .link-pll-strings a, /* For WP < 4.5 */
 [data-slug="polylang-theme-strings"].active .link-pll-strings a  /* For WP >= 4.5 */ {
+    font-weight: bold;
+}
+
+#polylang-theme-strings .link-pll-strings.warning, /* For WP < 4.5 */
+[data-slug="polylang-theme-strings"] .link-pll-strings.warning /* For WP >= 4.5 */ {
+    color: #a00000;
     font-weight: bold;
 }
